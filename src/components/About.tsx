@@ -45,7 +45,7 @@ const About = () => {
           >
             <div className="relative rounded-xl overflow-hidden border border-zinc-800 shadow-xl">
               <Image
-                src="https://sdmntpreastus2.oaiusercontent.com/files/00000000-d394-61f6-86e2-08030a84e3e4/raw?se=2025-04-07T20%3A14%3A14Z&sp=r&sv=2024-08-04&sr=b&scid=09a79483-65f7-57db-aa6b-ac30267ddab6&skoid=3f3a9132-9530-48ef-96b7-fee5a811733f&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skt=2025-04-07T06%3A06%3A55Z&ske=2025-04-08T06%3A06%3A55Z&sks=b&skv=2024-08-04&sig=b/nyZZLeKjKKB7BAg6cA0iCUtzkZMBGwOT4LdoJ/Qps%3D"
+                src="https://img.freepik.com/free-photo/gamer-live-streaming-setup_23-2151948239.jpg?ga=GA1.1.1106625350.1744549871&semt=ais_hybrid&w=740"
                 alt="Samarth Shukla"
                 width={500}
                 height={400}
