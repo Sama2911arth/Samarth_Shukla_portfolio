@@ -18,18 +18,18 @@ const Experience = () => {
       icon: <Briefcase className="h-5 w-5" />,
       type: "work"
     },
-    {
-      id: 2,
-      role: "Web Development Intern",
-      company: "TechOctanet Services Pvt ltd.",
-      period: "June 2023 - July 2023",
-      description: [
-        "During my internship, I built multiple projects using diverse frameworks, enhancing my overall development skills.",
-        "I enhanced my skills in building and debugging complex features, from UI design to API integration."
-      ],
-      icon: <Briefcase className="h-5 w-5" />,
-      type: "work"
-    },
+    // {
+    //   id: 2,
+    //   role: "Web Development Intern",
+    //   company: "TechOctanet Services Pvt ltd.",
+    //   period: "June 2023 - July 2023",
+    //   description: [
+    //     "During my internship, I built multiple projects using diverse frameworks, enhancing my overall development skills.",
+    //     "I enhanced my skills in building and debugging complex features, from UI design to API integration."
+    //   ],
+    //   icon: <Briefcase className="h-5 w-5" />,
+    //   type: "work"
+    // },
     {
       id: 3,
       role: "Bachelor of Technology in Computer Science",
