@@ -8,7 +8,7 @@ const Experience = () => {
   const experiences = [
     {
       id: 1,
-      role: "Full Stack Development Intern",
+      role: "Full Stack Developer Intern",
       company: "Zummit Infolabs",
       period: "Mar 2025 - Present",
       description: [
