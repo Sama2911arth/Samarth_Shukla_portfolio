@@ -3,7 +3,9 @@
 import React, { useState } from 'react';
 import Image from 'next/image';
 import { motion } from 'framer-motion';
-import { Github, ExternalLink } from 'lucide-react';
+import { ExternalLink } from 'lucide-react';
+import flightly from '../../public/images/flightly.png'
+import chatapp from '../../public/images/chatapp.png'
 
 interface Project {
   id: number;
@@ -35,25 +37,25 @@ const Projects = () => {
       description: "A social media platform where users can share posts and interact.",
       image: "https://ext.same-assets.com/508262888/142484516.png",
       technologies: ["MERN Stack", "Redux.js", "React.js", "Node.js", ""],
-      githubUrl: "https://github.com/Sama2911arth/Sociopedia",
+      githubUrl: "https://sociopedia-frontend-dyta.vercel.app/",
       type: "web"
     },
     {
       id: 3,
-      title: "CodingPro UI",
-      description: "UI for a coding institute's website.",
-      image: "https://ext.same-assets.com/508262888/837915585.png",
-      technologies: ["Frontend", "React.js", "Figma"],
-      githubUrl: "https://github.com/Sama2911arth/CodingPro-Website-UI",
+      title: "Flightly",
+      description: "A WebApp for flight bookings and instant PDF e-ticket generation.",
+      image: flightly.src,
+      technologies: ["Next.js", "MongoDB", "TailwindCSS"],
+      githubUrl: "https://flight-booking-frontend-nu.vercel.app/",
       type: "web"
     },
     {
       id: 4,
-      title: "Book-Store WebApp",
-      description: "An app to search and browse book collections.",
-      image: "https://ext.same-assets.com/508262888/1307425892.png",
-      technologies: ["Next.js", "MongoDB", "Aceternity UI", "Node.js", "TailwindCSS"],
-      githubUrl: "https://github.com/Sama2911arth/Book-Store-Project-using-MERN-and-Tailwind-CSS",
+      title: "ChatNest",
+      description: "A chat platform designed for quick, effortless conversations with friends.",
+      image: chatapp.src,
+      technologies: ["Next.js", "TailwindCSS", "Local Storage", "Socket.io"],
+      githubUrl: "https://chat-app-using-nextjs.vercel.app/",
       type: "web"
     },
     {
@@ -184,7 +186,7 @@ const ProjectCard = ({ project, index }: ProjectCardProps) => {
             rel="noopener noreferrer"
             className="flex items-center text-zinc-400 hover:text-white transition-colors"
           >
-            <Github className="h-4 w-4 mr-1" /> Code
+            <ExternalLink className="h-4 w-4 mr-1" /> Project Link
           </a>
           {project.liveUrl && (
             <a

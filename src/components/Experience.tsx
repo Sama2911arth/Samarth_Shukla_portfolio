@@ -10,10 +10,12 @@ const Experience = () => {
       id: 1,
       role: "Full Stack Development Intern",
       company: "Zummit Infolabs",
-      period: "Feb 2025 - Present",
+      period: "Mar 2025 - Present",
       description: [
-        "Participating in team meetings and code reviews to understand agile development workflows.",
-        "Assisting in developing and maintaining web applications using React.js, Node.js, and MongoDB."
+        "Led the dev team for an innovative EdTech platform offering Gen AI, Data Science, and Analytics courses with focus on scalability and modern UX.",
+        "Built a fully mobile - responsive site, ensuring 100 % device compatibility.",
+        "Led frontend architecture decisions and trained newly onboarded interns.",
+        "Implemented mobile - first design principles, contributing to a 60 % increase in average session duration"
       ],
       icon: <Briefcase className="h-5 w-5" />,
       type: "work"
