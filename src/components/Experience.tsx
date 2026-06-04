@@ -2,69 +2,43 @@
 
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Briefcase, GraduationCap, Calendar } from 'lucide-react';
+import { Briefcase, Calendar } from 'lucide-react';
 
 const Experience = () => {
   const experiences = [
     {
       id: 1,
-      role: "Full Stack Developer Intern",
-      company: "Zummit Infolabs",
-      period: "Mar 2025 - Present",
+      role: "Junior SDE",
+      company: "Aura-AI",
+      period: "Aug 2025 - Present",
       description: [
-        "Led the dev team for an innovative EdTech platform offering Gen AI, Data Science, and Analytics courses with focus on scalability and modern UX.",
-        "Built a fully mobile - responsive site, ensuring 100 % device compatibility.",
-        "Led frontend architecture decisions and trained newly onboarded interns.",
-        "Implemented mobile - first design principles, contributing to a 60 % increase in average session duration"
+        "Built Advanced Impactor, a Flutter cricket video analysis app for uploading, streaming, and reviewing match and practice sessions across Android and iOS.",
+        "Contributed to a Python computer-vision pipeline using video segmentation, YOLO object detection models, impact detection, clip generation, and frame extraction.",
+        "Implemented visual analytics including pitch maps, wagon wheels, and side-view insights with secure cloud sync and role-based access.",
+        "Built PadhAI web and mobile workflows for classes, student management, assignments, quizzes, learning posts, and AI-assisted study support.",
+        "Developed AI doubt solving with image queries, contextual PDF Q&A using RAG, chat history, Firebase notifications, and real-time WebSocket chat."
       ],
       icon: <Briefcase className="h-5 w-5" />,
       type: "work"
     },
-    // {
-    //   id: 2,
-    //   role: "Web Development Intern",
-    //   company: "TechOctanet Services Pvt ltd.",
-    //   period: "June 2023 - July 2023",
-    //   description: [
-    //     "During my internship, I built multiple projects using diverse frameworks, enhancing my overall development skills.",
-    //     "I enhanced my skills in building and debugging complex features, from UI design to API integration."
-    //   ],
-    //   icon: <Briefcase className="h-5 w-5" />,
-    //   type: "work"
-    // },
     {
-      id: 3,
-      role: "Bachelor of Technology in Computer Science",
-      company: "Jaypee University Of Engineering And Technology, Guna (M.P.)",
-      period: "2022-Present",
-      description: [],
-      icon: <GraduationCap className="h-5 w-5" />,
-      type: "education"
+      id: 2,
+      role: "Full Stack Developer Intern",
+      company: "Zummit Infolabs",
+      period: "Mar 2025 - Jul 2025",
+      description: [
+        "Spearheaded Digital Nexus AI, a scalable EdTech platform for GenAI, Data Science, and Analytics courses.",
+        "Engineered a fully mobile-responsive React.js and Tailwind CSS web app with 100% device compatibility.",
+        "Owned frontend architecture decisions, established coding standards, and mentored 3+ interns to speed up onboarding and delivery."
+      ],
+      icon: <Briefcase className="h-5 w-5" />,
+      type: "work"
     },
-    {
-      id: 4,
-      role: "12th Standard",
-      company: "Joy and Campion Sr. Sec. School, Sagar (M.P.)",
-      period: "2021-22",
-      description: [],
-      icon: <GraduationCap className="h-5 w-5" />,
-      type: "education"
-    },
-    {
-      id: 5,
-      role: "10th Standard",
-      company: "Mahar Regiment Public School, Sagar (M.P.)",
-      period: "2019-20",
-      description: [],
-      icon: <GraduationCap className="h-5 w-5" />,
-      type: "education"
-    }
   ];
 
   return (
-    <section id="experience" className="py-24 bg-zinc-950 relative">
+    <section id="experience" className="py-24 bg-zinc-950 relative overflow-hidden">
       <div className="absolute top-0 left-0 right-0 h-1 stripe-purple-pink-gradient" />
-      <div className="absolute -top-10 right-1/4 w-72 h-72 bg-purple-500/10 rounded-full blur-[100px] -z-10" />
 
       <div className="container mx-auto px-4">
         <motion.div
@@ -75,43 +49,19 @@ const Experience = () => {
           className="flex flex-col items-center mb-16"
         >
           <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
-            Education & <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-purple-500">Experience</span>
+            Work <span className="bg-clip-text text-transparent bg-gradient-to-r from-amber-300 to-red-400">Experience</span>
           </h2>
           <div className="h-1 w-20 stripe-purple-pink-gradient rounded-full" />
         </motion.div>
 
-        <div className="grid md:grid-cols-2 gap-8">
-          <div className="space-y-8">
-            <h3 className="text-2xl font-bold text-white mb-6 flex items-center">
-              <Briefcase className="mr-3 text-purple-400" /> Work Experience
-            </h3>
-            {experiences
-              .filter(exp => exp.type === 'work')
-              .map((experience, index) => (
-                <ExperienceCard
-                  key={experience.id}
-                  experience={experience}
-                  index={index}
-                />
-              ))
-            }
-          </div>
-
-          <div className="space-y-8">
-            <h3 className="text-2xl font-bold text-white mb-6 flex items-center">
-              <GraduationCap className="mr-3 text-blue-400" /> Education
-            </h3>
-            {experiences
-              .filter(exp => exp.type === 'education')
-              .map((experience, index) => (
-                <ExperienceCard
-                  key={experience.id}
-                  experience={experience}
-                  index={index}
-                />
-              ))
-            }
-          </div>
+        <div className="mx-auto max-w-4xl space-y-8">
+          {experiences.map((experience, index) => (
+            <ExperienceCard
+              key={experience.id}
+              experience={experience}
+              index={index}
+            />
+          ))}
         </div>
       </div>
     </section>
@@ -141,7 +91,7 @@ const ExperienceCard = ({ experience, index }: ExperienceProps) => {
       className="gradient-card p-6"
     >
       <div className="flex items-start">
-        <div className={`p-2 rounded-full mr-4 ${experience.type === 'work' ? 'bg-purple-500/20' : 'bg-blue-500/20'}`}>
+        <div className="p-2 rounded-md mr-4 bg-amber-400/10 text-amber-300">
           {experience.icon}
         </div>
         <div>

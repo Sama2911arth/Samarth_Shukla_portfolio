@@ -1,86 +1,93 @@
 "use client";
 
 import React from 'react';
-import Image from 'next/image';
 import { motion } from 'framer-motion';
-import { ArrowDown, Code, Smartphone } from 'lucide-react';
+import { ArrowDown, ArrowUpRight, Code2, Download, Smartphone, Sparkles } from 'lucide-react';
 
 const Hero = () => {
+  const scrollToExperience = () => {
+    document.getElementById('experience')?.scrollIntoView({
+      behavior: 'smooth',
+      block: 'start',
+    });
+  };
+
+  const highlights = [
+    { value: '2+', label: 'years building web and mobile apps' },
+    { value: '1+', label: 'years of internship experience' },
+    { value: '6+', label: 'AI, web, and mobile projects shipped' },
+  ];
+
   return (
-    <section className="hero-gradient min-h-screen pt-24 pb-16 flex items-center relative overflow-hidden">
-      <div className="container mx-auto px-4 grid md:grid-cols-2 gap-12 items-center">
+    <section className="hero-gradient min-h-screen pt-28 pb-20 flex items-center relative overflow-hidden">
+      <div className="container mx-auto px-4 grid lg:grid-cols-[1.05fr_0.95fr] gap-12 items-center relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
           className="space-y-8"
         >
-          <div>
+          <div className="space-y-5">
+            <div className="inline-flex items-center gap-2 rounded-full border border-emerald-400/20 bg-emerald-400/10 px-4 py-2 text-sm text-emerald-200">
+              <Sparkles className="h-4 w-4" />
+              Junior SDE at Aura-AI
+            </div>
+
             <motion.h1
-              className="text-4xl md:text-6xl font-bold text-white mb-4"
+              className="text-4xl md:text-6xl xl:text-7xl font-bold text-white leading-tight"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.2 }}
             >
-              Hi, I am <br />
-              <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-purple-500">
-                <span className="text-5xl md:text-7xl font-extrabold">Samarth</span> <br />
-                <span className="text-4xl md:text-6xl font-extrabold">Shukla</span>
-
-              </span>
+              Building useful AI, web, and mobile products.
             </motion.h1>
 
             <motion.p
-              className="text-zinc-400 text-lg md:text-xl"
+              className="text-zinc-300 text-lg md:text-xl max-w-2xl leading-relaxed"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.3 }}
             >
-              I'm a passionate tech enthusiast who loves building things. Here's what I do!
+              I am Samarth Shukla, a full-stack and mobile developer working across Next.js,
+              FastAPI, Flutter, React Native, and AI workflows for education, sports analytics,
+              travel, and voice tooling.
             </motion.p>
           </div>
 
           <motion.div
-            className="grid sm:grid-cols-2 gap-6"
+            className="flex flex-col sm:flex-row gap-3"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.4 }}
           >
-            <div className="gradient-card p-6">
-              <div className="flex items-center mb-3">
-                <Code className="text-blue-400 mr-3" />
-                <h3 className="text-xl font-semibold text-white">Full Stack Development</h3>
-              </div>
-              <p className="text-zinc-400">
-                Building responsive Web-Apps using MERN Stack. Sometimes I also use other databases.
-              </p>
-            </div>
-
-            <div className="gradient-card p-6">
-              <div className="flex items-center mb-3">
-                <Smartphone className="text-purple-400 mr-3" />
-                <h3 className="text-xl font-semibold text-white">Mobile App Development</h3>
-              </div>
-              <p className="text-zinc-400">
-                I design mobile apps with amazing user interfaces using ReactNative.
-              </p>
-            </div>
+            <a href="#projects" className="gradient-button">
+              <span className="relative z-10 flex items-center gap-2">
+                View Projects <ArrowUpRight className="h-4 w-4" />
+              </span>
+            </a>
+            <a
+              href="/Samarth_Shukla_Resume.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center justify-center gap-2 rounded-md border border-white/10 bg-white/5 px-5 py-3 font-medium text-white transition hover:bg-white/10"
+            >
+              <Download className="h-4 w-4" />
+              Resume
+            </a>
           </motion.div>
 
           <motion.div
+            className="grid grid-cols-3 gap-3 max-w-2xl"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.5 }}
-            className="pt-4"
           >
-            <a
-              href="https://drive.google.com/drive/u/0/folders/1geQZ5qW8SGLqxsyVu3HkOWzyJZqq8RPG"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="gradient-button text-white"
-            >
-              <span className="relative z-10">Download CV</span>
-            </a>
+            {highlights.map((item) => (
+              <div key={item.label} className="rounded-lg border border-white/10 bg-white/[0.03] p-4">
+                <p className="text-2xl font-bold text-white">{item.value}</p>
+                <p className="mt-1 text-xs leading-relaxed text-zinc-400">{item.label}</p>
+              </div>
+            ))}
           </motion.div>
         </motion.div>
 
@@ -88,20 +95,23 @@ const Hero = () => {
           initial={{ opacity: 0, scale: 0.9 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.5, delay: 0.2 }}
-          className="flex justify-center"
+          className="relative"
         >
-          <div className="relative rounded-xl overflow-hidden bg-zinc-800 border border-zinc-700 shadow-xl">
-            <Image
-              src="https://ext.same-assets.com/508262888/1725302978.webp"
-              alt="Samarth's workspace"
-              width={500}
-              height={400}
-              className="rounded-xl"
-            />
-            <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-4">
-              <p className="text-center text-zinc-400 text-sm">
-                According to ChatGPT, this is how my workspace looks like!
-              </p>
+          <div className="gradient-card p-6 md:p-8">
+            <div className="flex items-center justify-between border-b border-white/10 pb-5">
+              <div>
+                <p className="text-sm text-zinc-400">Current focus</p>
+                <h2 className="mt-1 text-2xl font-bold text-white">AI product engineering</h2>
+              </div>
+              <Code2 className="h-8 w-8 text-emerald-300" />
+            </div>
+
+            <div className="mt-6 space-y-5">
+              <FocusItem
+                icon={<Smartphone className="h-5 w-5" />}
+                title="Advanced Impactor"
+                text="Flutter cricket video analysis app with computer vision, YOLO object detection models, clip review, pitch maps, wagon wheels, and cloud sync."
+              />
             </div>
           </div>
         </motion.div>
@@ -111,16 +121,40 @@ const Hero = () => {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 1, delay: 1 }}
-        className="absolute bottom-8 left-1/2 transform -translate-x-1/2 text-white flex flex-col items-center"
+        className="absolute bottom-3 left-1/2 transform -translate-x-1/2 text-white"
       >
-        <p className="text-zinc-400 mb-2">Scroll to explore</p>
-        <ArrowDown className="animate-bounce" />
+        <button
+          type="button"
+          onClick={scrollToExperience}
+          className="flex flex-col items-center text-zinc-400 transition-colors hover:text-white"
+        >
+          <span className="mb-2">Scroll to explore</span>
+          <ArrowDown className="animate-bounce" />
+        </button>
       </motion.div>
-
-      {/* Decorative gradient orb */}
-      <div className="absolute top-1/4 right-1/4 w-96 h-96 bg-purple-500/20 rounded-full blur-[120px] -z-10" />
-      <div className="absolute bottom-1/4 left-1/4 w-96 h-96 bg-blue-500/20 rounded-full blur-[120px] -z-10" />
     </section>
+  );
+};
+
+const FocusItem = ({
+  icon,
+  title,
+  text,
+}: {
+  icon: React.ReactNode;
+  title: string;
+  text: string;
+}) => {
+  return (
+    <div className="flex gap-4 rounded-lg border border-white/10 bg-black/20 p-4">
+      <div className="mt-1 flex h-10 w-10 shrink-0 items-center justify-center rounded-md bg-emerald-400/10 text-emerald-300">
+        {icon}
+      </div>
+      <div>
+        <h3 className="font-semibold text-white">{title}</h3>
+        <p className="mt-1 text-sm leading-relaxed text-zinc-400">{text}</p>
+      </div>
+    </div>
   );
 };
 

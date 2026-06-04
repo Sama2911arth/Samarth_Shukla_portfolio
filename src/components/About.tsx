@@ -1,25 +1,43 @@
 "use client";
 
 import React from 'react';
-import Image from 'next/image';
 import { motion } from 'framer-motion';
+import { BrainCircuit, Code2, Database, GraduationCap } from 'lucide-react';
 
 const About = () => {
   const coreSkills = [
-    'React.js',
-    'Node.js',
-    'MongoDB',
-    'Express',
+    'Python',
+    'MERN Stack',
+    'AWS',
+    'Flutter',
     'React Native',
-    'JavaScript',
-    'TypeScript'
+    'Node.js',
+    'OpenCV',
+    'YOLO Object Detection Models',
+    'Computer Vision'
+  ];
+
+  const strengths = [
+    {
+      icon: <Code2 className="h-5 w-5" />,
+      title: 'Full-stack delivery',
+      text: 'Next.js, React, Node.js, Express, FastAPI, and deployment on Vercel, Render, and AWS.'
+    },
+    {
+      icon: <BrainCircuit className="h-5 w-5" />,
+      title: 'Applied AI',
+      text: 'Gemini, Whisper, LangChain, RAG, image queries, and AI-assisted education workflows.'
+    },
+    {
+      icon: <Database className="h-5 w-5" />,
+      title: 'Product data flows',
+      text: 'MongoDB, PostgreSQL, MySQL, Supabase, Firebase, and Appwrite-backed applications.'
+    }
   ];
 
   return (
-    <section id="about" className="py-24 bg-zinc-900 relative">
-      {/* Gradient decoration */}
+    <section id="about" className="py-24 bg-zinc-900 relative overflow-hidden">
       <div className="absolute top-0 left-0 right-0 h-1 stripe-gradient-bg" />
-      <div className="absolute -top-10 left-1/4 w-72 h-72 bg-purple-500/10 rounded-full blur-[100px] -z-10" />
 
       <div className="container mx-auto px-4">
         <motion.div
@@ -30,35 +48,37 @@ const About = () => {
           className="flex flex-col items-center mb-16"
         >
           <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
-            About <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-purple-500">Me</span>
+            About <span className="bg-clip-text text-transparent bg-gradient-to-r from-emerald-300 to-amber-300">Me</span>
           </h2>
           <div className="h-1 w-20 stripe-gradient-bg rounded-full" />
         </motion.div>
 
-        <div className="grid md:grid-cols-2 gap-12 items-center">
+        <div className="grid lg:grid-cols-[0.9fr_1.1fr] gap-10 items-start">
           <motion.div
-            initial={{ opacity: 0, scale: 0.9 }}
-            whileInView={{ opacity: 1, scale: 1 }}
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-100px" }}
             transition={{ duration: 0.6 }}
-            className="relative"
+            className="gradient-card p-6"
           >
-            <div className="relative rounded-xl overflow-hidden border border-zinc-800 shadow-xl">
-              <Image
-                src="https://img.freepik.com/free-photo/gamer-live-streaming-setup_23-2151948239.jpg?ga=GA1.1.1106625350.1744549871&semt=ais_hybrid&w=740"
-                alt="Samarth Shukla"
-                width={500}
-                height={400}
-                className="w-full h-auto rounded-xl"
-              />
-              <div className="absolute inset-0 bg-gradient-to-tr from-purple-500/20 to-transparent mix-blend-overlay" />
+            <div className="flex items-start gap-4">
+              <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-md bg-emerald-400/10 text-emerald-300">
+                <GraduationCap className="h-6 w-6" />
+              </div>
+              <div>
+                <p className="text-sm uppercase tracking-[0.2em] text-zinc-500">Education</p>
+                <h3 className="mt-2 text-xl font-semibold text-white">B.Tech in Computer Science</h3>
+                <p className="mt-2 text-zinc-400">Jaypee University of Engineering and Technology, Guna</p>
+                <p className="mt-1 text-sm text-zinc-500">Sept 2022 - July 2026</p>
+              </div>
             </div>
 
-            {/* Experience badge */}
-            <div className="absolute -bottom-6 -right-6 bg-zinc-800 border border-zinc-700 rounded-xl p-4 shadow-xl">
-              <p className="text-zinc-400 text-sm">Bachelor of Technology</p>
-              <p className="text-white font-semibold">Computer Science</p>
-              <p className="text-zinc-400 text-sm">2022-Present</p>
+            <div className="mt-8 grid gap-3">
+              {['Data Structures & Algorithms', 'Databases', 'Operating Systems', 'Software Engineering'].map((course) => (
+                <div key={course} className="rounded-md border border-white/10 bg-black/20 px-4 py-3 text-sm text-zinc-300">
+                  {course}
+                </div>
+              ))}
             </div>
           </motion.div>
 
@@ -70,29 +90,35 @@ const About = () => {
             className="space-y-6"
           >
             <p className="text-zinc-300 leading-relaxed">
-              Hi, I'm Samarth Shukla, a passionate Full Stack Developer and
-              Mobile App Developer. I specialize in building responsive web applications using the MERN stack and
-              designing mobile apps with amazing user interfaces using React Native.
+              I build product-focused software across web, mobile, backend, and AI workflows. My recent work spans
+              cricket video analytics, classroom platforms, AI doubt-solving, voice processing, and responsive EdTech
+              applications.
             </p>
 
             <p className="text-zinc-300 leading-relaxed">
-              I have a proven track record of delivering high-quality projects that meet the needs of the hour.
-              I am always eager to learn new technologies and take on new challenges.
+              I care about shipping complete systems: clean user interfaces, practical architecture, reliable data
+              models, cloud sync, and AI features that reduce real user effort instead of just adding novelty.
             </p>
 
-            <p className="text-zinc-300 leading-relaxed">
-              When I'm not coding, you can find me exploring new places, reading tech blogs, or spending time with
-              my family and friends. Let's connect and create something amazing together!
-            </p>
+            <div className="grid sm:grid-cols-3 gap-3">
+              {strengths.map((strength) => (
+                <div key={strength.title} className="rounded-lg border border-white/10 bg-zinc-950/50 p-4">
+                  <div className="mb-3 flex h-10 w-10 items-center justify-center rounded-md bg-emerald-400/10 text-emerald-300">
+                    {strength.icon}
+                  </div>
+                  <h3 className="font-semibold text-white">{strength.title}</h3>
+                  <p className="mt-2 text-sm leading-relaxed text-zinc-400">{strength.text}</p>
+                </div>
+              ))}
+            </div>
 
-            {/* Skills pills */}
             <div className="pt-4">
-              <h3 className="text-white font-semibold mb-3">Core Skills:</h3>
+              <h3 className="text-white font-semibold mb-3">Core stack</h3>
               <div className="flex flex-wrap gap-2">
                 {coreSkills.map((skill) => (
                   <span
                     key={skill}
-                    className="px-3 py-1 rounded-full text-sm bg-zinc-800 border border-zinc-700 text-zinc-300"
+                    className="px-3 py-1 rounded-full text-sm bg-zinc-950 border border-white/10 text-zinc-300"
                   >
                     {skill}
                   </span>

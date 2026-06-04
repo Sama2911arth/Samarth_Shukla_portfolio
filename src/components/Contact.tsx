@@ -2,7 +2,7 @@
 
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { Mail, Phone, MapPin, Send, Linkedin, Github, Instagram, Facebook } from 'lucide-react';
+import { Github, Globe, Linkedin, Mail, MapPin, Phone, Send } from 'lucide-react';
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -38,7 +38,7 @@ const Contact = () => {
   };
 
   return (
-    <section id="contact" className="py-24 bg-zinc-900 relative">
+    <section id="contact" className="py-24 bg-zinc-900 relative overflow-hidden">
       <div className="absolute top-0 left-0 right-0 h-1 stripe-purple-pink-gradient" />
       <div className="absolute bottom-0 left-0 right-0 h-40 bg-gradient-to-t from-zinc-950 to-transparent" />
 
@@ -51,7 +51,7 @@ const Contact = () => {
           className="flex flex-col items-center mb-16"
         >
           <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
-            Get In <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-purple-500">Touch</span>
+            Get In <span className="bg-clip-text text-transparent bg-gradient-to-r from-amber-300 to-red-400">Touch</span>
           </h2>
           <div className="h-1 w-20 stripe-purple-pink-gradient rounded-full" />
         </motion.div>
@@ -67,13 +67,13 @@ const Contact = () => {
             <div>
               <h3 className="text-2xl font-bold text-white mb-6">Contact Information</h3>
               <p className="text-zinc-400 mb-8">
-                Feel free to reach out for collaborations, project inquiries, or just to say hi!
+                Open to software engineering roles, freelance product builds, and collaborations around AI-enabled web or mobile apps.
               </p>
 
               <div className="space-y-4">
                 <div className="flex items-center">
-                  <div className="h-10 w-10 rounded-full bg-zinc-800 flex items-center justify-center mr-4">
-                    <Mail className="h-5 w-5 text-purple-400" />
+                  <div className="h-10 w-10 rounded-md bg-zinc-800 flex items-center justify-center mr-4">
+                    <Mail className="h-5 w-5 text-amber-300" />
                   </div>
                   <div>
                     <p className="text-zinc-500 text-sm">Email</p>
@@ -87,8 +87,8 @@ const Contact = () => {
                 </div>
 
                 <div className="flex items-center">
-                  <div className="h-10 w-10 rounded-full bg-zinc-800 flex items-center justify-center mr-4">
-                    <Phone className="h-5 w-5 text-blue-400" />
+                  <div className="h-10 w-10 rounded-md bg-zinc-800 flex items-center justify-center mr-4">
+                    <Phone className="h-5 w-5 text-emerald-300" />
                   </div>
                   <div>
                     <p className="text-zinc-500 text-sm">Phone</p>
@@ -102,12 +102,28 @@ const Contact = () => {
                 </div>
 
                 <div className="flex items-center">
-                  <div className="h-10 w-10 rounded-full bg-zinc-800 flex items-center justify-center mr-4">
-                    <MapPin className="h-5 w-5 text-pink-400" />
+                  <div className="h-10 w-10 rounded-md bg-zinc-800 flex items-center justify-center mr-4">
+                    <MapPin className="h-5 w-5 text-red-300" />
                   </div>
                   <div>
                     <p className="text-zinc-500 text-sm">Location</p>
                     <p className="text-white">Sagar, Madhya Pradesh, 470002</p>
+                  </div>
+                </div>
+                <div className="flex items-center">
+                  <div className="h-10 w-10 rounded-md bg-zinc-800 flex items-center justify-center mr-4">
+                    <Globe className="h-5 w-5 text-cyan-300" />
+                  </div>
+                  <div>
+                    <p className="text-zinc-500 text-sm">Portfolio</p>
+                    <a
+                      href="https://samarth-shukla-portfolio.vercel.app"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-white hover:text-cyan-300 transition-colors"
+                    >
+                      samarth-shukla-portfolio.vercel.app
+                    </a>
                   </div>
                 </div>
               </div>
@@ -116,10 +132,9 @@ const Contact = () => {
             <div>
               <h3 className="text-xl font-bold text-white mb-4">Connect With Me</h3>
               <div className="flex space-x-4">
-                <SocialLink href="https://www.linkedin.com/in/samarth-shukla-ab4391256/" icon={<Linkedin />} color="bg-blue-500/10 text-blue-400" />
+                <SocialLink href="https://www.linkedin.com/in/sama2911arth" icon={<Linkedin />} color="bg-cyan-500/10 text-cyan-300" />
                 <SocialLink href="https://github.com/Sama2911arth/" icon={<Github />} color="bg-zinc-500/10 text-zinc-400" />
-                <SocialLink href="https://www.instagram.com" icon={<Instagram />} color="bg-pink-500/10 text-pink-400" />
-                <SocialLink href="https://www.facebook.com" icon={<Facebook />} color="bg-blue-600/10 text-blue-500" />
+                <SocialLink href="https://samarth-shukla-portfolio.vercel.app" icon={<Globe />} color="bg-emerald-500/10 text-emerald-300" />
               </div>
             </div>
           </motion.div>
@@ -143,7 +158,7 @@ const Contact = () => {
                     value={formData.name}
                     onChange={handleChange}
                     required
-                    className="w-full px-4 py-3 bg-zinc-800 border border-zinc-700 rounded-md focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent text-white"
+                    className="w-full px-4 py-3 bg-zinc-800 border border-zinc-700 rounded-md focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-transparent text-white"
                     placeholder="Your name"
                   />
                 </div>
@@ -157,7 +172,7 @@ const Contact = () => {
                     value={formData.email}
                     onChange={handleChange}
                     required
-                    className="w-full px-4 py-3 bg-zinc-800 border border-zinc-700 rounded-md focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent text-white"
+                    className="w-full px-4 py-3 bg-zinc-800 border border-zinc-700 rounded-md focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-transparent text-white"
                     placeholder="example@email.com"
                   />
                 </div>
@@ -170,7 +185,7 @@ const Contact = () => {
                     name="phone"
                     value={formData.phone}
                     onChange={handleChange}
-                    className="w-full px-4 py-3 bg-zinc-800 border border-zinc-700 rounded-md focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent text-white"
+                    className="w-full px-4 py-3 bg-zinc-800 border border-zinc-700 rounded-md focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-transparent text-white"
                     placeholder="Your phone number (optional)"
                   />
                 </div>
@@ -184,7 +199,7 @@ const Contact = () => {
                     onChange={handleChange}
                     required
                     rows={4}
-                    className="w-full px-4 py-3 bg-zinc-800 border border-zinc-700 rounded-md focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent text-white resize-none"
+                    className="w-full px-4 py-3 bg-zinc-800 border border-zinc-700 rounded-md focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-transparent text-white resize-none"
                     placeholder="Your message..."
                   />
                 </div>

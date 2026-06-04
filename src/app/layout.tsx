@@ -5,9 +5,12 @@ import "./globals.css";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Samarth Shukla | Full Stack Developer",
-  description: "Full Stack Developer specializing in MERN and React Native development",
-  keywords: ["Full Stack Developer", "MERN Stack", "React Native", "Mobile App Development"],
+  title: "Samarth Shukla | Junior SDE at Aura AI",
+  description: "Portfolio of Samarth Shukla, a full-stack and mobile developer building AI-enabled products with Next.js, FastAPI, Flutter, React Native, and cloud-backed workflows.",
+  keywords: ["Samarth Shukla", "Full Stack Developer", "AI Developer", "Next.js", "FastAPI", "Flutter", "React Native"],
+  icons: {
+    icon: "/favicon.svg",
+  },
 };
 
 export default function RootLayout({

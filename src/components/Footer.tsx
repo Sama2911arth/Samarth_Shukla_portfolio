@@ -3,7 +3,8 @@
 import React from 'react';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
-import { Github, Linkedin, Instagram, Facebook, ArrowUp } from 'lucide-react';
+import { ArrowUp, Github, Linkedin } from 'lucide-react';
+import BrandMark from './BrandMark';
 
 const Footer = () => {
   const scrollToTop = () => {
@@ -20,18 +21,16 @@ const Footer = () => {
       <div className="container mx-auto px-4">
         <div className="grid md:grid-cols-4 gap-8">
           <div className="md:col-span-2">
-            <Link href="/">
-              <h2 className="text-white text-2xl font-bold mb-4">Samarth Shukla</h2>
-            </Link>
+            <div className="mb-4">
+              <BrandMark />
+            </div>
             <p className="mb-4 text-zinc-500">
-              Full Stack Developer specializing in MERN and React Native development.
-              Building innovative web and mobile solutions with modern technologies.
+              Full-stack and mobile developer building AI-enabled products with Next.js,
+              FastAPI, Flutter, React Native, and practical cloud-backed workflows.
             </p>
             <div className="flex space-x-4 mt-4">
               <SocialIcon href="https://github.com/Sama2911arth/" icon={<Github size={18} />} />
-              <SocialIcon href="https://www.linkedin.com/in/samarth-shukla-ab4391256/" icon={<Linkedin size={18} />} />
-              <SocialIcon href="https://www.instagram.com" icon={<Instagram size={18} />} />
-              <SocialIcon href="https://www.facebook.com" icon={<Facebook size={18} />} />
+              <SocialIcon href="https://www.linkedin.com/in/sama2911arth" icon={<Linkedin size={18} />} />
             </div>
           </div>
 
@@ -39,19 +38,19 @@ const Footer = () => {
             <h3 className="text-white text-lg font-semibold mb-4">Quick Links</h3>
             <ul className="space-y-2">
               <li>
-                <Link href="#about" className="hover:text-white transition-colors">About</Link>
+                <FooterLink href="#about">About</FooterLink>
               </li>
               <li>
-                <Link href="#experience" className="hover:text-white transition-colors">Experience</Link>
+                <FooterLink href="#experience">Experience</FooterLink>
               </li>
               <li>
-                <Link href="#projects" className="hover:text-white transition-colors">Projects</Link>
+                <FooterLink href="#projects">Projects</FooterLink>
               </li>
               <li>
-                <Link href="#skills" className="hover:text-white transition-colors">Skills</Link>
+                <FooterLink href="#skills">Skills</FooterLink>
               </li>
               <li>
-                <Link href="#contact" className="hover:text-white transition-colors">Contact</Link>
+                <FooterLink href="#contact">Contact</FooterLink>
               </li>
             </ul>
           </div>
@@ -60,25 +59,19 @@ const Footer = () => {
             <h3 className="text-white text-lg font-semibold mb-4">Contact</h3>
             <ul className="space-y-2">
               <li>
-                <a
-                  href="mailto:samarthshukla994@gmail.com"
-                  className="hover:text-white transition-colors"
-                >
+                <a href="mailto:samarthshukla994@gmail.com" className="hover:text-white transition-colors">
                   samarthshukla994@gmail.com
                 </a>
               </li>
               <li>
-                <a
-                  href="tel:+917898183094"
-                  className="hover:text-white transition-colors"
-                >
+                <a href="tel:+917898183094" className="hover:text-white transition-colors">
                   +91 7898183094
                 </a>
               </li>
               <li>Sagar, Madhya Pradesh, 470002</li>
               <li className="pt-2">
                 <a
-                  href="https://drive.google.com/drive/u/0/folders/1geQZ5qW8SGLqxsyVu3HkOWzyJZqq8RPG"
+                  href="/Samarth_Shukla_Resume.pdf"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="hover:text-white transition-colors"
@@ -91,7 +84,7 @@ const Footer = () => {
         </div>
 
         <div className="mt-12 pt-8 border-t border-zinc-800 flex flex-col md:flex-row justify-between items-center">
-          <p>© {new Date().getFullYear()} Samarth Shukla. All rights reserved.</p>
+          <p>(c) {new Date().getFullYear()} Samarth Shukla. All rights reserved.</p>
 
           <button
             onClick={scrollToTop}
@@ -110,6 +103,18 @@ interface SocialIconProps {
   href: string;
   icon: React.ReactNode;
 }
+
+const FooterLink = ({ href, children }: { href: string; children: React.ReactNode }) => {
+  return (
+    <Link
+      href={href}
+      className="group relative inline-block py-1 transition-colors hover:text-white focus-visible:text-white focus-visible:outline-none"
+    >
+      {children}
+      <span className="absolute bottom-0 left-0 h-0.5 w-full origin-left scale-x-0 rounded-full bg-emerald-300 transition-transform duration-300 ease-out group-hover:scale-x-100 group-focus-visible:scale-x-100" />
+    </Link>
+  );
+};
 
 const SocialIcon = ({ href, icon }: SocialIconProps) => {
   return (

@@ -3,7 +3,8 @@
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
-import { Github, Linkedin, Instagram, Facebook } from 'lucide-react';
+import { Download, Github, Linkedin } from 'lucide-react';
+import BrandMark from './BrandMark';
 
 const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
@@ -37,9 +38,8 @@ const Navbar = () => {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.2 }}
-          className="text-xl font-bold text-white"
         >
-          Samarth Shukla
+          <BrandMark compact />
         </motion.div>
 
         <div className="hidden md:flex space-x-6">
@@ -52,19 +52,20 @@ const Navbar = () => {
 
         <div className="flex items-center space-x-4">
           <SocialIcon href="https://github.com/Sama2911arth/" icon={<Github className="w-5 h-5" />} />
-          <SocialIcon href="https://www.linkedin.com/in/samarth-shukla-ab4391256/" icon={<Linkedin className="w-5 h-5" />} />
-          <SocialIcon href="https://www.instagram.com" icon={<Instagram className="w-5 h-5" />} />
-          <SocialIcon href="https://www.facebook.com" icon={<Facebook className="w-5 h-5" />} />
+          <SocialIcon href="https://www.linkedin.com/in/sama2911arth" icon={<Linkedin className="w-5 h-5" />} />
 
           <motion.a
-            href="https://drive.google.com/drive/u/0/folders/1geQZ5qW8SGLqxsyVu3HkOWzyJZqq8RPG"
+            href="/Samarth_Shukla_Resume.pdf"
             target="_blank"
             rel="noopener noreferrer"
             className="hidden md:block gradient-button text-white"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
           >
-            <span className="relative z-10">Download CV</span>
+            <span className="relative z-10 flex items-center gap-2">
+              <Download className="h-4 w-4" />
+              Resume
+            </span>
           </motion.a>
         </div>
       </div>
@@ -74,8 +75,12 @@ const Navbar = () => {
 
 const NavLink = ({ href, children }: { href: string; children: React.ReactNode }) => {
   return (
-    <Link href={href} className="text-zinc-400 hover:text-white transition-colors duration-200">
+    <Link
+      href={href}
+      className="group relative py-2 text-zinc-400 transition-colors duration-200 hover:text-white focus-visible:text-white focus-visible:outline-none"
+    >
       {children}
+      <span className="absolute bottom-0 left-0 h-0.5 w-full origin-left scale-x-0 rounded-full bg-emerald-300 transition-transform duration-300 ease-out group-hover:scale-x-100 group-focus-visible:scale-x-100" />
     </Link>
   );
 };
