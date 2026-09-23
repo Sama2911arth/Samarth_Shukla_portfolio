@@ -2,42 +2,42 @@
 
 import React from 'react';
 import { motion } from 'framer-motion';
-import { BrainCircuit, Code2, Database, GraduationCap } from 'lucide-react';
+import { BrainCircuit, Cloud, Code2, GraduationCap, MapPin, Sparkles } from 'lucide-react';
 
 const About = () => {
   const coreSkills = [
     'Python',
-    'MERN Stack',
-    'AWS',
-    'Flutter',
-    'React Native',
-    'Node.js',
-    'OpenCV',
-    'YOLO Object Detection Models',
-    'Computer Vision'
+    'TypeScript',
+    'React.js',
+    'Next.js',
+    'FastAPI',
+    'AWS Lambda',
+    'MongoDB',
+    'YOLO',
+    'OpenCV'
   ];
 
-  const strengths = [
+  const focusAreas = [
     {
       icon: <Code2 className="h-5 w-5" />,
       title: 'Full-stack delivery',
-      text: 'Next.js, React, Node.js, Express, FastAPI, and deployment on Vercel, Render, and AWS.'
+      text: 'React, Vite, Next.js, Node.js, Express, and FastAPI, deployed on AWS, Vercel, and Render.'
+    },
+    {
+      icon: <Cloud className="h-5 w-5" />,
+      title: 'Cloud & performance',
+      text: 'AWS Lambda, API Gateway, and S3-backed APIs, with lazy loading, code splitting, and connection pooling for scale.'
     },
     {
       icon: <BrainCircuit className="h-5 w-5" />,
-      title: 'Applied AI',
-      text: 'Gemini, Whisper, LangChain, RAG, image queries, and AI-assisted education workflows.'
-    },
-    {
-      icon: <Database className="h-5 w-5" />,
-      title: 'Product data flows',
-      text: 'MongoDB, PostgreSQL, MySQL, Supabase, Firebase, and Appwrite-backed applications.'
+      title: 'Applied AI & CV',
+      text: 'YOLO, YOLO Pose, OpenCV, LangChain, Gemini, and Whisper across cricket analytics, EdTech, and voice tooling.'
     }
   ];
 
   return (
-    <section id="about" className="py-24 bg-zinc-900 relative overflow-hidden">
-      <div className="absolute top-0 left-0 right-0 h-1 stripe-gradient-bg" />
+    <section id="about" className="py-24 relative overflow-hidden">
+      <div className="absolute top-0 left-0 right-0 section-divider" />
 
       <div className="container mx-auto px-4">
         <motion.div
@@ -47,78 +47,100 @@ const About = () => {
           transition={{ duration: 0.6 }}
           className="flex flex-col items-center mb-16"
         >
-          <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
-            About <span className="bg-clip-text text-transparent bg-gradient-to-r from-emerald-300 to-amber-300">Me</span>
+          <h2 className="font-display text-3xl md:text-4xl font-bold text-foreground mb-4">
+            About <span className="text-gradient">Me</span>
           </h2>
-          <div className="h-1 w-20 stripe-gradient-bg rounded-full" />
+          <div className="h-1 w-20 rounded-full bg-gradient-to-r from-[hsl(var(--aurora-1))] to-[hsl(var(--aurora-3))]" />
         </motion.div>
 
-        <div className="grid lg:grid-cols-[0.9fr_1.1fr] gap-10 items-start">
+        <div className="grid lg:grid-cols-[1.15fr_0.85fr] gap-12 items-start">
+          {/* Narrative column */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-100px" }}
             transition={{ duration: 0.6 }}
-            className="gradient-card p-6"
+            className="space-y-10"
           >
-            <div className="flex items-start gap-4">
-              <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-md bg-emerald-400/10 text-emerald-300">
-                <GraduationCap className="h-6 w-6" />
-              </div>
-              <div>
-                <p className="text-sm uppercase tracking-[0.2em] text-zinc-500">Education</p>
-                <h3 className="mt-2 text-xl font-semibold text-white">B.Tech in Computer Science</h3>
-                <p className="mt-2 text-zinc-400">Jaypee University of Engineering and Technology, Guna</p>
-                <p className="mt-1 text-sm text-zinc-500">Sept 2022 - July 2026</p>
-              </div>
+            <div className="space-y-5">
+              <h3 className="font-display text-2xl md:text-3xl font-semibold text-foreground leading-snug">
+                I like building software that actually gets used.
+              </h3>
+              <p className="text-foreground/80 leading-relaxed">
+                As a Software Engineer at Advanced Impactor, I work on a React + Vite CRM running on AWS,
+                internal analytics dashboards, and a computer-vision pipeline for cricket analytics.
+              </p>
+              <p className="text-foreground/80 leading-relaxed">
+                I care about shipping complete systems: clean interfaces, practical architecture, reliable
+                data models, cloud infrastructure that holds up under load, and AI features that reduce real
+                user effort instead of just adding novelty.
+              </p>
             </div>
 
-            <div className="mt-8 grid gap-3">
-              {['Data Structures & Algorithms', 'Databases', 'Operating Systems', 'Software Engineering'].map((course) => (
-                <div key={course} className="rounded-md border border-white/10 bg-black/20 px-4 py-3 text-sm text-zinc-300">
-                  {course}
-                </div>
-              ))}
+            <div className="space-y-6">
+              <p className="text-sm font-semibold uppercase tracking-[0.2em] text-muted-foreground">
+                What I focus on
+              </p>
+              <div className="divide-y divide-border">
+                {focusAreas.map((area) => (
+                  <div key={area.title} className="flex items-start gap-4 py-5 first:pt-0 last:pb-0">
+                    <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-[hsl(var(--aurora-1)/0.1)] text-[hsl(var(--aurora-1))] dark:text-[hsl(var(--aurora-2))]">
+                      {area.icon}
+                    </div>
+                    <div>
+                      <h4 className="font-semibold text-foreground">{area.title}</h4>
+                      <p className="mt-1 text-sm leading-relaxed text-muted-foreground">{area.text}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
             </div>
           </motion.div>
 
+          {/* Info sidebar card */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-100px" }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            className="space-y-6"
+            transition={{ duration: 0.6, delay: 0.15 }}
+            className="gradient-card p-6 lg:sticky lg:top-28"
           >
-            <p className="text-zinc-300 leading-relaxed">
-              I build product-focused software across web, mobile, backend, and AI workflows. My recent work spans
-              cricket video analytics, classroom platforms, AI doubt-solving, voice processing, and responsive EdTech
-              applications.
-            </p>
-
-            <p className="text-zinc-300 leading-relaxed">
-              I care about shipping complete systems: clean user interfaces, practical architecture, reliable data
-              models, cloud sync, and AI features that reduce real user effort instead of just adding novelty.
-            </p>
-
-            <div className="grid sm:grid-cols-3 gap-3">
-              {strengths.map((strength) => (
-                <div key={strength.title} className="rounded-lg border border-white/10 bg-zinc-950/50 p-4">
-                  <div className="mb-3 flex h-10 w-10 items-center justify-center rounded-md bg-emerald-400/10 text-emerald-300">
-                    {strength.icon}
-                  </div>
-                  <h3 className="font-semibold text-white">{strength.title}</h3>
-                  <p className="mt-2 text-sm leading-relaxed text-zinc-400">{strength.text}</p>
-                </div>
-              ))}
+            <div className="flex items-start gap-4 pb-6 border-b border-border">
+              <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-lg bg-[hsl(var(--aurora-1)/0.1)] text-[hsl(var(--aurora-1))] dark:text-[hsl(var(--aurora-2))]">
+                <GraduationCap className="h-6 w-6" />
+              </div>
+              <div>
+                <p className="text-xs uppercase tracking-[0.2em] text-muted-foreground">Education</p>
+                <h4 className="mt-1 font-semibold text-foreground">B.Tech in Computer Science</h4>
+                <p className="mt-1 text-sm text-muted-foreground">Jaypee University of Engineering and Technology, Guna</p>
+                <p className="mt-1 text-xs text-muted-foreground/70">Sept 2022 - May 2026</p>
+              </div>
             </div>
 
-            <div className="pt-4">
-              <h3 className="text-white font-semibold mb-3">Core stack</h3>
+            <div className="grid grid-cols-2 gap-4 py-6 border-b border-border">
+              <div className="flex items-start gap-3">
+                <MapPin className="h-4 w-4 mt-0.5 shrink-0 text-[hsl(var(--aurora-3))]" />
+                <div>
+                  <p className="text-xs text-muted-foreground">Based in</p>
+                  <p className="text-sm text-foreground">Sagar, MP</p>
+                </div>
+              </div>
+              <div className="flex items-start gap-3">
+                <Sparkles className="h-4 w-4 mt-0.5 shrink-0 text-[hsl(var(--aurora-4))]" />
+                <div>
+                  <p className="text-xs text-muted-foreground">Experience</p>
+                  <p className="text-sm text-foreground">1+ years, remote</p>
+                </div>
+              </div>
+            </div>
+
+            <div className="pt-6">
+              <h3 className="text-foreground font-semibold mb-3 text-sm">Core stack</h3>
               <div className="flex flex-wrap gap-2">
                 {coreSkills.map((skill) => (
                   <span
                     key={skill}
-                    className="px-3 py-1 rounded-full text-sm bg-zinc-950 border border-white/10 text-zinc-300"
+                    className="px-3 py-1 rounded-full text-sm bg-secondary border border-border text-foreground/80"
                   >
                     {skill}
                   </span>

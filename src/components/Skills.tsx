@@ -2,45 +2,51 @@
 
 import React from 'react';
 import { motion } from 'framer-motion';
-import { BrainCircuit, Cloud, Code2, Database, ScanEye, Wrench } from 'lucide-react';
+import { BrainCircuit, Cloud, Code2, Database, Server, Smartphone } from 'lucide-react';
 
 const skillGroups = [
   {
     title: 'Languages',
     icon: <Code2 className="h-5 w-5" />,
-    skills: ['C++', 'Python', 'JavaScript', 'TypeScript']
+    skills: ['Python', 'C++', 'JavaScript', 'TypeScript', 'SQL'],
+    accent: 'var(--aurora-1)',
   },
   {
-    title: 'Frameworks',
+    title: 'Backend & APIs',
+    icon: <Server className="h-5 w-5" />,
+    skills: ['FastAPI', 'Node.js', 'Express.js', 'REST APIs'],
+    accent: 'var(--aurora-2)',
+  },
+  {
+    title: 'AI & ML',
     icon: <BrainCircuit className="h-5 w-5" />,
-    skills: ['React.js', 'Next.js', 'Express.js', 'Node.js', 'FastAPI', 'React Native', 'Flutter', 'OpenCV']
+    skills: ['YOLO', 'YOLO Pose', 'OpenCV', 'LangChain', 'Google Gemini', 'OpenAI Whisper'],
+    accent: 'var(--aurora-3)',
+  },
+  {
+    title: 'Frontend & Mobile',
+    icon: <Smartphone className="h-5 w-5" />,
+    skills: ['React.js', 'Next.js', 'Vite', 'React Native', 'Flutter'],
+    accent: 'var(--aurora-4)',
   },
   {
     title: 'Databases',
     icon: <Database className="h-5 w-5" />,
-    skills: ['PostgreSQL', 'MySQL', 'MongoDB', 'Supabase', 'Firebase', 'Appwrite']
+    skills: ['PostgreSQL', 'MySQL', 'MongoDB', 'Supabase', 'Firebase'],
+    accent: 'var(--aurora-1)',
   },
   {
-    title: 'AI & Cloud',
+    title: 'Cloud & Tools',
     icon: <Cloud className="h-5 w-5" />,
-    skills: ['LangChain', 'Google Gemini', 'OpenAI Whisper', 'RAG', 'AWS', 'Render', 'Vercel']
+    skills: ['AWS Lambda', 'API Gateway', 'Amazon S3', 'Docker', 'Git', 'GitHub', 'Ubuntu', 'Vercel'],
+    accent: 'var(--aurora-2)',
   },
-  {
-    title: 'Computer Vision',
-    icon: <ScanEye className="h-5 w-5" />,
-    skills: ['OpenCV', 'YOLO Object Detection Models', 'Video Segmentation', 'Impact Detection', 'Frame Extraction', 'Visual Analytics']
-  },
-  {
-    title: 'Tools',
-    icon: <Wrench className="h-5 w-5" />,
-    skills: ['Git', 'GitHub', 'Docker', 'Ubuntu', 'Canva', 'Responsive Testing']
-  }
 ];
 
 const Skills = () => {
   return (
-    <section id="skills" className="py-24 bg-zinc-900 relative overflow-hidden">
-      <div className="absolute top-0 left-0 right-0 h-1 stripe-blue-gradient" />
+    <section id="skills" className="min-h-screen py-24 relative overflow-hidden flex flex-col justify-center">
+      <div className="absolute top-0 left-0 right-0 section-divider" />
 
       <div className="container mx-auto px-4">
         <motion.div
@@ -50,10 +56,10 @@ const Skills = () => {
           transition={{ duration: 0.6 }}
           className="flex flex-col items-center mb-16 text-center"
         >
-          <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
-            Skills & <span className="bg-clip-text text-transparent bg-gradient-to-r from-cyan-300 to-emerald-300">Technologies</span>
+          <h2 className="font-display text-3xl md:text-4xl font-bold text-foreground mb-4">
+            Skills & <span className="text-gradient">Technologies</span>
           </h2>
-          <div className="h-1 w-20 stripe-blue-gradient rounded-full" />
+          <div className="h-1 w-20 rounded-full bg-gradient-to-r from-[hsl(var(--aurora-4))] to-[hsl(var(--aurora-1))]" />
         </motion.div>
 
         <div className="grid md:grid-cols-2 xl:grid-cols-3 gap-5">
@@ -67,17 +73,20 @@ const Skills = () => {
               className="gradient-card p-6"
             >
               <div className="flex items-center gap-3">
-                <div className="flex h-10 w-10 items-center justify-center rounded-md bg-cyan-400/10 text-cyan-300">
+                <div
+                  className="flex h-10 w-10 items-center justify-center rounded-lg"
+                  style={{ backgroundColor: `hsl(${group.accent} / 0.12)`, color: `hsl(${group.accent})` }}
+                >
                   {group.icon}
                 </div>
-                <h3 className="text-xl font-semibold text-white">{group.title}</h3>
+                <h3 className="text-xl font-semibold text-foreground">{group.title}</h3>
               </div>
 
               <div className="mt-5 flex flex-wrap gap-2">
                 {group.skills.map((skill) => (
                   <span
                     key={skill}
-                    className="rounded-full border border-white/10 bg-zinc-950 px-3 py-1 text-sm text-zinc-300"
+                    className="rounded-full border border-border bg-secondary px-3 py-1 text-sm text-foreground/80"
                   >
                     {skill}
                   </span>
